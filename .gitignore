@@ -6,12 +6,17 @@
 **/*.gen/
 **/*.ip_user_files/
 **/*.srcs/
+**/.Xil/
 *.xpr
 
-# --- Whitelist: ignore everything else except .v and .xdc ---
+# --- Whitelist: ignore everything else except .v, .xdc, and video files ---
 *
 !*/
 !*.v
 !*.xdc
+!*.mp4
+!*.mov
+!*.avi
+!*.mkv
 !.gitignore
 !flatten_for_git.ps1
