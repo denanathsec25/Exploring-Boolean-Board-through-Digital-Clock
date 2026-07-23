@@ -1,1 +1,0 @@
-Exploring the Boolean FPGA Board by implementing a Digital Clock in Verilog HDL, covering clock division, timekeeping, seven-segment display multiplexing, alarm integration, and FPGA flash programming using Vivado.
