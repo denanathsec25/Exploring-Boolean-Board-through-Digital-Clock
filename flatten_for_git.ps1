@@ -7,7 +7,7 @@ foreach ($file in $files) {
     if ($file.FullName -match "^(.*)\\[^\\]+\.srcs\\(sources_1|constrs_1|sim_1)\\new\\(.*)$") {
         $projectFolder = $matches[1]
         $fileName = $matches[3]
-        $destPath = Join-Path $projectFolder "$($matches[2])_$fileName"
+        $destPath = Join-Path $projectFolder $fileName
         try {
             Copy-Item -Path $file.FullName -Destination $destPath -Force -ErrorAction Stop
             Write-Host "Copied: $fileName -> $projectFolder"
