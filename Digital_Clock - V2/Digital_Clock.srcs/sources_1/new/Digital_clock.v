@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 18.07.2026 05:20:02
+// Create Date: 11.07.2026 05:20:02
 // Design Name: 
-// Module Name: Digital_clock
+// Module Name: Digital_clk
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -21,21 +21,12 @@
 
 
 module Digital_clock(
-        input clk,
-        input [1:0]decision, //decision decides whether date or time should display
-        input rst,set,choose, //whether sec or hours or minutes should display
-        output [7:0]seg,seg1,AN,
-        output s1_out,s2_out,
-        //Stopwatch
-        input play,
-        //alarm
-        input alarm_activation,
-        output alarm_out
-    );
-    
-    /*decision to display time is 00 and to display date is 01 and to display stopwatch is 10
-    and to display alarm is 11*/
-    
+input clk,decision,
+input rst,set,choose,
+output [7:0]seg,seg1,AN,
+output s1_out,s2_out
+);
+
 reg [3:0]sec_ones,sec_tens,min_ones,min_tens,hr_ones,hr_tens,day,date_ones,date_tens;
 localparam clk_freq = 100000000;
 
@@ -46,17 +37,13 @@ reg [1:0]state,next_state;
 localparam s0 = 2'b00,
            s1 = 2'b01,//min, day
            s2 = 2'b10;//hr, date
-//Stopwatch
-wire [3:0]t_ms_ones,t_ms_tens,t_ms_hun,t_sec_ones,t_sec_tens,t_min_ones,t_min_tens,t_hr_ones,t_hr_tens;    
-//Alarm
-wire [3:0]alarm_min_ones,alarm_min_tens,alarm_hr_ones,alarm_hr_tens;
 
 always @(posedge clk or posedge rst)
 begin
     if(rst)
         state <= s0;
     else
-        state <= next_state;
+    state <= next_state;
 end
 
 always @(*)
@@ -69,8 +56,8 @@ begin
         endcase
 end
 
-assign s1_out = (state == s1) ? 1:0;
-assign s2_out = (state == s2) ? 1:0;
+assign s1_out = (state == s1) ? 1 : 0;
+assign s2_out = (state == s2) ? 1 : 0;
 
 assign seg1 = seg;
 
@@ -172,7 +159,7 @@ begin
             date_tens <= date_tens + 1;
         end
          
-        if(state == s1 && set == 1 && decision == 2'b00)
+        if(state == s1 && set == 1 && decision == 0)
         begin
             min_ones <= min_ones + 1;
             
@@ -190,7 +177,7 @@ begin
         end
             
         end
-        if(state == s2 &&  set == 1 && decision == 2'b00)
+        if(state == s2 &&  set == 1 && decision == 0)
         begin
             hr_ones <= hr_ones + 1;
             
@@ -208,17 +195,17 @@ begin
             
        end
        
-        if(state == s1 && set == 1 && decision == 2'b01)
+        if(state == s1 && set == 1 && decision == 1)
         begin
         if(day == 7)
-            day <= 1;
+            day <=1;
             else
                 day <= day + 1;
         end
         
-       if(state == s2 && set == 1 && decision == 2'b01)
+       if(state == s2 && set == 1 && decision == 1)
         begin
-            date_ones <= date_ones + 1;
+            date_ones <=date_ones + 1;
             
             if(date_tens == 3 && date_ones == 1)
             begin
@@ -234,15 +221,10 @@ begin
         end 
        end
     end
-end
-   
-  // Stopwatch  
-  stopwatch stopwatch_module(play,clk,rst,decision,t_ms_ones,t_ms_tens,t_ms_hun,t_sec_ones,t_sec_tens,t_min_ones,t_min_tens,t_hr_ones,t_hr_tens); 
-
- //Alarm
- alarm alarm_module(alarm_min_ones,alarm_min_tens,alarm_hr_ones,alarm_hr_tens,alarm_out,clk,rst,state,set,decision,one_second_enable,alarm_activation,min_ones,min_tens,hr_ones,hr_tens);
-
+    
  
+end
+
 Display_controller display_unit (
         .clk(clk),
         .rst(rst),
@@ -256,22 +238,6 @@ Display_controller display_unit (
         .day(day),
         .date_ones(date_ones),
         .date_tens(date_tens),
-        
-        //Stopwatch
-        .t_ms_tens(t_ms_tens),
-        .t_ms_hun(t_ms_hun),
-        .t_sec_ones(t_sec_ones),
-        .t_sec_tens(t_sec_tens),
-        .t_min_ones(t_min_ones),
-        .t_min_tens(t_min_tens),
-        .t_hr_ones(t_hr_ones),
-        .t_hr_tens(t_hr_tens),
-        
-        //Alarm
-        .alarm_min_ones(alarm_min_ones),
-        .alarm_min_tens(alarm_min_tens),
-        .alarm_hr_ones(alarm_hr_ones),
-        .alarm_hr_tens(alarm_hr_tens),
         
         .decision(decision),
 
