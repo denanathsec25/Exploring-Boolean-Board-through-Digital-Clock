@@ -12,6 +12,7 @@
 # --- Whitelist: ignore everything else except .v, .xdc, and video files ---
 *
 !*/
+!*.md
 !*.v
 !*.xdc
 !*.mp4
