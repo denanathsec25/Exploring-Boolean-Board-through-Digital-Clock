@@ -1,16 +1,17 @@
 `timescale 1ns / 1ps
-module audio_test(
+module audio(
     input  wire clk,          // 100 MHz clock
-    input  wire rst,          // Active-high reset
+    input  wire rst, 
+    input wire audio_out,         // Active-high reset
     output wire left_audio_out,
     output wire right_audio_out
 );
     //==========================================================
     // Parameters
     //==========================================================
-    localparam integer SAMPLE_COUNT   = 230000;
+    localparam integer SAMPLE_COUNT   = 220000;
     localparam integer SAMPLE_DIVIDER = 12500;
-    localparam [17:0] LAST_SAMPLE     = 18'd229999;
+    localparam [17:0] LAST_SAMPLE     = 18'd219999;
     //==========================================================
     // Audio ROM
     //==========================================================
@@ -31,7 +32,12 @@ module audio_test(
             sample_counter <= 14'd0;
             sample_tick    <= 1'b0;
         end
-        else
+        else if(!audio_out)
+        begin
+            sample_counter <= 14'd0;
+            sample_tick    <= 1'b0;
+        end
+        else if(audio_out)
         begin
             if(sample_counter == SAMPLE_DIVIDER-1)
             begin

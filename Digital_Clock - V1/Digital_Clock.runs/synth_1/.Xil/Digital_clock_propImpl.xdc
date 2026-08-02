@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:{E:/Vivado Projects/Digital_Clock/Digital_Clock.srcs/constrs_1/new/Constraints.xdc} rfile:../../../Digital_Clock.srcs/constrs_1/new/Constraints.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:{E:/Digital Clock/Digital_Clock - V1/Digital_Clock.srcs/constrs_1/new/Constraints.xdc} rfile:../../../Digital_Clock.srcs/constrs_1/new/Constraints.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:8 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN J2 [get_ports hr_set]
 set_property src_info {type:XDC file:1 line:9 export:INPUT save:INPUT read:READ} [current_design]
