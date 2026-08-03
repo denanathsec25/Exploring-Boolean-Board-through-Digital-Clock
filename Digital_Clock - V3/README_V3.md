@@ -118,28 +118,6 @@ When the current clock time matches the configured alarm time, the alarm output 
 
 ---
 
-# Top Module
-
-```verilog
-module Digital_clock(
-    input clk,
-    input rst,
-
-    input decision,
-    input choose,
-    input set,
-
-    input play,
-    input alarm_activation,
-
-    output [7:0] seg,
-    output [7:0] seg1,
-    output [7:0] AN
-);
-```
-
----
-
 # Source Files
 
 | File | Description |
