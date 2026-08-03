@@ -106,7 +106,28 @@ The `choose` button changes the current state, while the `set` button increments
 | s2_out | FSM State Indicator |
 
 ---
-## Code
+
+# Clock Architecture
+
+```
+                 100 MHz Clock
+                        │
+                 Clock Divider
+                        │
+        ┌───────────────┴───────────────┐
+        │                               │
+   Time Counter                  Date Counter
+        │                               │
+        └───────────────┬───────────────┘
+                        │
+                  Finite State Machine
+                        │
+                 Display Controller
+                        │
+                Seven Segment Display
+```
+
+---
 
 ## Top Module
 
