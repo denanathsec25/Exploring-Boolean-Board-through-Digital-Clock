@@ -213,6 +213,12 @@ Responsible for
                         │
              Seven Segment Display
 ```
+---
+
+## Demonstration Video
+
+🔗Link :  https://drive.google.com/file/d/18nM4P0FrykCVfm9-6_aSSPqybp8_aL2z/view?usp=sharing
+
 
 ---
 
