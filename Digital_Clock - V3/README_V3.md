@@ -156,6 +156,12 @@ When the current clock time matches the configured alarm time, the alarm output 
 
 ---
 
+## Demonstration Video
+
+🔗Link :  https://drive.google.com/file/d/103S_z9ATFod24YlWwjPAf-em2u0P7gx5/view?usp=sharing
+
+---
+
 ## Top Module
 
 ```verilog
