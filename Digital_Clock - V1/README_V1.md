@@ -71,6 +71,60 @@ Converts a 4-bit BCD value into the corresponding Seven-Segment display output.
 
 ---
 
+# Clock Operation
+
+```
+100 MHz Clock
+      │
+      ▼
+Clock Divider
+      │
+      ▼
+1 Second Tick
+      │
+      ▼
+Seconds Counter
+      │
+      ▼
+Minutes Counter
+      │
+      ▼
+Hours Counter
+      │
+      ▼
+Day Counter
+```
+
+---
+
+# Inputs
+
+| Signal | Description |
+|---------|-------------|
+| clk | 100 MHz System Clock |
+| rst | Reset Clock |
+| min_set | Increment Minutes |
+| hr_set | Increment Hours |
+| day_set | Increment Day |
+
+---
+
+# Outputs
+
+| Signal | Description |
+|---------|-------------|
+| seg | Seven Segment Output |
+| seg1 | Decimal Point Output |
+| AN | Active-Low Digit Enable |
+
+---
+
+## Demonstration Video
+
+🔗Link :  https://drive.google.com/file/d/1hx-CgFJKJ1jiJID7KoBvTx_sut0E_ko8/view?usp=sharing
+
+---
+
 # Module Instantiation
 
 Copy and paste directly into your project.
@@ -391,53 +445,6 @@ set_property PACKAGE_PIN H2 [get_ports day_set]
 
 ---
 
-# Clock Operation
-
-```
-100 MHz Clock
-      │
-      ▼
-Clock Divider
-      │
-      ▼
-1 Second Tick
-      │
-      ▼
-Seconds Counter
-      │
-      ▼
-Minutes Counter
-      │
-      ▼
-Hours Counter
-      │
-      ▼
-Day Counter
-```
-
----
-
-# Inputs
-
-| Signal | Description |
-|---------|-------------|
-| clk | 100 MHz System Clock |
-| rst | Reset Clock |
-| min_set | Increment Minutes |
-| hr_set | Increment Hours |
-| day_set | Increment Day |
-
----
-
-# Outputs
-
-| Signal | Description |
-|---------|-------------|
-| seg | Seven Segment Output |
-| seg1 | Decimal Point Output |
-| AN | Active-Low Digit Enable |
-
----
 
 # Simulation
 
