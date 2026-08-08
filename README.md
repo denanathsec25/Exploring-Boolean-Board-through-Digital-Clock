@@ -165,9 +165,11 @@ Electronics and Communication Engineering
 
 Bannari Amman Institute of Technology
 
-GitHub: https://github.com/denanathsec25
+GitHub:
+https://github.com/denanathsec25
 
-LinkedIn: https://www.linkedin.com/in/denanaths-/
+LinkedIn:
+https://www.linkedin.com/in/denanaths-/
 
 ---
 
